@@ -1,3 +1,4 @@
+using Hilton.HotelManagement.HotelOperations;
 using Microsoft.EntityFrameworkCore;
 using Hilton.HotelManagement.Users;
 using Volo.Abp.Data;
@@ -11,6 +12,7 @@ namespace Hilton.HotelManagement.EntityFrameworkCore
     public class HotelManagementDbContext : AbpDbContext<HotelManagementDbContext>
     {
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         public HotelManagementDbContext(DbContextOptions<HotelManagementDbContext> options)
             : base(options)

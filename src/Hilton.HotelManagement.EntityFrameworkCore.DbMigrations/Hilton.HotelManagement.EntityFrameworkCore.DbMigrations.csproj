@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\20190320072839_Initial.cs" />
+    <Compile Remove="Migrations\20190522074615_Add_Reservation.cs" />
+    <Compile Remove="Migrations\20190522133344_Added_Reservation.cs" />
+    <Compile Remove="Migrations\20190522134016_Added_Reservation.cs" />
   </ItemGroup>
 
   <ItemGroup>

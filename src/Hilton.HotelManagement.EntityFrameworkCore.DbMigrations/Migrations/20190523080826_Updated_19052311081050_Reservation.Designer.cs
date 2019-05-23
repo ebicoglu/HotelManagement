@@ -4,14 +4,16 @@ using Hilton.HotelManagement.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hilton.HotelManagement.Migrations
 {
     [DbContext(typeof(HotelManagementMigrationsDbContext))]
-    partial class HotelManagementMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190523080826_Updated_19052311081050_Reservation")]
+    partial class Updated_19052311081050_Reservation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
