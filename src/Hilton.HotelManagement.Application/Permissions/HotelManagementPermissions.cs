@@ -1,5 +1,4 @@
-﻿using System;
-using Volo.Abp.Reflection;
+﻿using Volo.Abp.Reflection;
 
 namespace Hilton.HotelManagement.Permissions
 {
@@ -9,6 +8,10 @@ namespace Hilton.HotelManagement.Permissions
 
         //Add your own permission names. Example:
         //public const string MyPermission1 = GroupName + ".MyPermission1";
+        public const string Pages_Reservations_Get = GroupName + "Pages.Reservations.Get";
+        public const string Pages_Reservations_Create = GroupName + "Pages.Reservations.Create";
+        public const string Pages_Reservations_Update = GroupName + "Pages.Reservations.Edit";
+        public const string Pages_Reservations_Delete = GroupName + "Pages.Reservations.Delete";
 
         public static string[] GetAll()
         {

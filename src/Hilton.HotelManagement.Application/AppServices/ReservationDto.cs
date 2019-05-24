@@ -1,12 +1,11 @@
-using System;
-using Volo.Abp.Domain.Entities;
-using Volo.Abp.MultiTenancy;
+﻿using System;
+using Volo.Abp.Application.Dtos;
 
-namespace Hilton.HotelManagement.HotelOperations
+namespace Hilton.HotelManagement.AppServices
 {
-    public class Reservation : Entity<long>, IMultiTenant
+    public class ReservationDto : IEntityDto<long>
     {
-        public const string DefaultSorting = "NameSurname ASC";
+        public long Id { get; set; }
 
         public virtual DateTime CheckinDate { get; set; }
 
