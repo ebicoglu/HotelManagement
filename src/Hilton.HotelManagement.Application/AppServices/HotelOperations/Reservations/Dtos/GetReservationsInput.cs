@@ -1,4 +1,4 @@
-﻿using Hilton.HotelManagement.HotelOperations;
+using Hilton.HotelManagement.HotelOperations;
 using Volo.Abp.Application.Dtos;
 
 namespace Hilton.HotelManagement.AppServices.HotelOperations.Reservations.Dtos

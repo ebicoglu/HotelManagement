@@ -19,9 +19,7 @@ namespace Hilton.HotelManagement.EntityFrameworkCore
             //    b.ToTable(HotelManagementConsts.DbTablePrefix + "YourEntities", HotelManagementConsts.DbSchema);
 
             //    //...
-            //});
-
-
+            //});                                                                                                                                                                                    
 
 
             builder.Entity<Reservation>(b =>
@@ -36,7 +34,6 @@ namespace Hilton.HotelManagement.EntityFrameworkCore
                 b.Property(x => x.TenantId);
 
             });
-
         }
 
         public static void ConfigureCustomUserProperties<TUser>(this EntityTypeBuilder<TUser> b)

@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
-using Hilton.HotelManagement.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
+using Hilton.HotelManagement.EntityFrameworkCore;
 
 namespace Hilton.HotelManagement.HotelOperations.Reservations
 {
@@ -47,26 +47,25 @@ namespace Hilton.HotelManagement.HotelOperations.Reservations
 
         protected virtual IQueryable<Reservation> ApplyFilter(IQueryable<Reservation> query, string filter, ReservationQueryFilter queryFilter)
         {
-            query = query.WhereIf(!filter.IsNullOrWhiteSpace(),
-                      e => e.NameSurname.Contains(filter, StringComparison.OrdinalIgnoreCase)); //todo: search on all string fields
+            query = query.WhereIf(!filter.IsNullOrWhiteSpace(), e =>
+                    e.NameSurname.Contains(filter, StringComparison.OrdinalIgnoreCase));
 
             if (queryFilter != null)
             {
                 query = query
-                    .WhereIf(!string.IsNullOrWhiteSpace(queryFilter.NameSurname), e => e.NameSurname.Contains(queryFilter.NameSurname, StringComparison.OrdinalIgnoreCase))
-                    
+
                     .WhereIf(queryFilter.CheckinDateMin.HasValue, e => e.CheckinDate >= queryFilter.CheckinDateMin.Value)
                     .WhereIf(queryFilter.CheckinDateMax.HasValue, e => e.CheckinDate <= queryFilter.CheckinDateMax.Value)
-                    
-                    .WhereIf(queryFilter.IsPaid.HasValue, e => e.IsPaid == queryFilter.IsPaid)
 
                     .WhereIf(queryFilter.PersonCountMin.HasValue, e => e.PersonCount >= queryFilter.PersonCountMin.Value)
                     .WhereIf(queryFilter.PersonCountMax.HasValue, e => e.PersonCount <= queryFilter.PersonCountMax.Value)
 
+                    .WhereIf(queryFilter.IsPaid.HasValue, e => e.IsPaid == queryFilter.IsPaid)
+
+                    .WhereIf(!string.IsNullOrWhiteSpace(queryFilter.NameSurname), e => e.NameSurname.Contains(queryFilter.NameSurname, StringComparison.OrdinalIgnoreCase))
+
                     .WhereIf(queryFilter.PriceMin.HasValue, e => e.Price >= queryFilter.PriceMin.Value)
                     .WhereIf(queryFilter.PriceMax.HasValue, e => e.Price <= queryFilter.PriceMax.Value);
-
-                //todo: add other properties for filterText
             }
 
             return query;

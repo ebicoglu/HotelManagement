@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Hilton.HotelManagement.AppServices.HotelOperations.Reservations.Dtos;
-using Hilton.HotelManagement.HotelOperations;
-using Hilton.HotelManagement.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
+using Hilton.HotelManagement.Permissions;
+using Hilton.HotelManagement.HotelOperations;
+using Hilton.HotelManagement.AppServices.HotelOperations.Reservations.Dtos;
 
 namespace Hilton.HotelManagement.AppServices.HotelOperations.Reservations
 {
@@ -23,7 +23,7 @@ namespace Hilton.HotelManagement.AppServices.HotelOperations.Reservations
         {
             var totalCount = await _reservationRepository.GetCountAsync(input.FilterText, input.ReservationFilter);
 
-            var reservations = await _reservationRepository
+            var items = await _reservationRepository
                 .GetListAsync(
                     input.FilterText,
                     input.ReservationFilter,
@@ -35,7 +35,7 @@ namespace Hilton.HotelManagement.AppServices.HotelOperations.Reservations
             return new PagedResultDto<ReservationDto>
             {
                 TotalCount = totalCount,
-                Items = ObjectMapper.Map<List<Reservation>, List<ReservationDto>>(reservations)
+                Items = ObjectMapper.Map<List<Reservation>, List<ReservationDto>>(items)
             };
         }
 
@@ -56,8 +56,9 @@ namespace Hilton.HotelManagement.AppServices.HotelOperations.Reservations
         {
             var newReservation = ObjectMapper.Map<ReservationCreateDto, Reservation>(input);
 
-            //todo: only for IMultiTenant entities.
+
             newReservation.TenantId = CurrentTenant.Id;
+
 
             var reservation = await _reservationRepository.InsertAsync(newReservation);
 
