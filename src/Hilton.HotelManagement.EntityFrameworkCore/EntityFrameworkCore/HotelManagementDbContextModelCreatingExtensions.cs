@@ -19,8 +19,7 @@ namespace Hilton.HotelManagement.EntityFrameworkCore
             //    b.ToTable(HotelManagementConsts.DbTablePrefix + "YourEntities", HotelManagementConsts.DbSchema);
 
             //    //...
-            //});                                                                                                                                                                                    
-
+            //});                                                                                                                                                                                                
 
             builder.Entity<Reservation>(b =>
             {

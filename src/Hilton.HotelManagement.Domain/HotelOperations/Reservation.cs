@@ -7,7 +7,7 @@ namespace Hilton.HotelManagement.HotelOperations
 {
     public class Reservation : Entity<long>, IMultiTenant
     {
-        public const string DefaultSorting = "PersonCount desc";
+        public const string DefaultSorting = "CheckinDate asc,PersonCount desc";
 
         public virtual DateTime CheckinDate { get; set; }
         public virtual byte PersonCount { get; set; }
