@@ -1,3 +1,4 @@
+using Hilton.HotelManagement.Students;
 using Hilton.HotelManagement.HotelOperations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -24,6 +25,19 @@ namespace Hilton.HotelManagement.EntityFrameworkCore
             builder.Entity<Reservation>(b =>
             {
                 b.ToTable(HotelManagementConsts.DbTablePrefix + "Reservation", HotelManagementConsts.DbSchema);
+
+                b.Property(x => x.CheckinDate);
+                b.Property(x => x.PersonCount);
+                b.Property(x => x.IsPaid);
+                b.Property(x => x.NameSurname);
+                b.Property(x => x.Price);
+                b.Property(x => x.TenantId);
+
+            });
+
+            builder.Entity<Student>(b =>
+            {
+                b.ToTable(HotelManagementConsts.DbTablePrefix + "StudentTable", HotelManagementConsts.DbSchema);
 
                 b.Property(x => x.CheckinDate);
                 b.Property(x => x.PersonCount);

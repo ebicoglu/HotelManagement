@@ -22,6 +22,11 @@ namespace Hilton.HotelManagement.Permissions
             myGroup.AddPermission(HotelManagementPermissions.Pages_Reservations_Create, L("Permission:Create"));
             myGroup.AddPermission(HotelManagementPermissions.Pages_Reservations_Update, L("Permission:Update"));
             myGroup.AddPermission(HotelManagementPermissions.Pages_Reservations_Delete, L("Permission:Delete"));
+
+            myGroup.AddPermission(HotelManagementPermissions.Pages_Students_Get, L("Permission:Get"));
+            myGroup.AddPermission(HotelManagementPermissions.Pages_Students_Create, L("Permission:Create"));
+            myGroup.AddPermission(HotelManagementPermissions.Pages_Students_Update, L("Permission:Update"));
+            myGroup.AddPermission(HotelManagementPermissions.Pages_Students_Delete, L("Permission:Delete"));
         }
 
         private static LocalizableString L(string name)

@@ -1,3 +1,4 @@
+using Hilton.HotelManagement.Students;
 using Hilton.HotelManagement.HotelOperations;
 using Microsoft.EntityFrameworkCore;
 using Hilton.HotelManagement.Users;
@@ -13,6 +14,7 @@ namespace Hilton.HotelManagement.EntityFrameworkCore
     {
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Student> Students { get; set; }
 
         public HotelManagementDbContext(DbContextOptions<HotelManagementDbContext> options)
             : base(options)
